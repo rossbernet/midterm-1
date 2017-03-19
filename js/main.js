@@ -43,21 +43,26 @@ console.log("current state is " + state);
 
 //Default sidebar text
 $("#text-title").text(array[0].title);
-$("#text-subtitle").text(array[0].subTitle);
+// $("#text-subtitle").text(array[0].subTitle);
 // $("#text-block").text(array[1].title);
 
 //Next button function
 nextFunc = function(j){
 $("#text-block").show().text(array[j].text);
 $("#text-title").text(array[j].title);
-$("#text-subtitle").text(array[j].subTitle);
+$(".image-link").attr('href',array[j].bigLink);
+$(".small-image").attr('src',array[j].smallLink);
+
+
+// $("#text-subtitle").text(array[j].subTitle);
 };
 
 //Previous button function
 prevFunc = function(j){
 $("#text-block").show().text(array[j].text);
 $("#text-title").text(array[j].title);
-$("#text-subtitle").text(array[j].subTitle);
+$(".image-link").attr('href',array[j].bigLink);
+$(".small-image").attr('src',array[j].smallLink);
 };
 
 //NEXT BUTTON
@@ -69,7 +74,7 @@ $("#button-next").click(function(){
     $("#button-next").hide();
   }
   $("#button-prev").show().text("Previous");
-  $("#text-subtitle").show();
+  // $("#text-subtitle").show();
         if (state == 1){
           nextFunc(state);
         }
@@ -99,7 +104,7 @@ if (state == _.max(newState)){
 else if (state === 0){
   $("#text-block").hide();
   $("#text-title").text(array[state].title);
-  $("#text-subtitle").hide();
+  // $("#text-subtitle").hide();
   $("#button-prev").hide();
 }
   map.setView(array[state].latLng, array[state].zoom);
@@ -136,3 +141,30 @@ $("#button-next").mouseenter(function(){
     }
 });
 });
+
+
+
+
+// $(document).ready(function() {
+//
+// 	/* This is basic - uses default settings */
+//
+// 	// $("a#single_image").fancybox();
+//
+// 	/* Using custom settings */
+//
+// 	$("a#inline").fancybox({
+// 		'hideOnContentClick': true
+// 	});
+//
+// 	/* Apply fancybox to multiple items */
+//
+// 	$("a.group").fancybox({
+// 		'transitionIn'	:	'elastic',
+// 		'transitionOut'	:	'elastic',
+// 		'speedIn'		:	600,
+// 		'speedOut'		:	200,
+// 		'overlayShow'	:	false
+// 	});
+//
+// });
